@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProgressBar from './ProgresoTicket';
 import '../../index.css'
+import { Link } from 'react-router-dom';
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
