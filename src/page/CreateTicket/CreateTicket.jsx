@@ -4,6 +4,7 @@ import '../../index.css'
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
+    const [imgPreview, setImgPreview] = useState("")
 
     const handleNextStep = () => {
         setStep(step + 1);
@@ -13,11 +14,25 @@ const CreateTicket = () => {
         setStep(step - 1);
     };
 
+    const imagenPreview = (e) => {
+        // console.log('Hola', e.target.files[0])
+        if(e.target.files[0]){
+            const reader = new FileReader()
+            reader.onload = function(e){
+                // console.log(e.target.result)
+                setImgPreview(e.target.result)
+            }
+            reader.readAsDataURL(e.target.files[0])
+        }else{
+            setImgPreview("")
+        }
+    }
+
     return (
         <div>
             <ProgressBar currentStep={step} totalSteps={3} />
             {step === 1 && (
-                <div className='flex flex-col w-[425px]'>
+                <div className='flex flex-col w-[425px] h-[546px]'>
                     {/* Aquí va el contenido del primer paso */}
                     <h1 className='font-bold mb-5 text-xl'>Datos de Usuario</h1>
                     <p>Correo corporativo: <span className='text-red-600 font-bold'>*</span></p>
@@ -36,7 +51,7 @@ const CreateTicket = () => {
                 </div>
             )}
             {step === 2 && (
-                <div className='flex flex-col w-[425px]'>
+                <div className='flex flex-col w-[425px] h-[546px]'>
                     {/* Aquí va el contenido del segundo paso */}
                     <div className='mb-4 align-bottom'>
                         <button onClick={handlePrevStep} className='text-[#9AAFC7] align-middle'><ion-icon name="chevron-back-outline"></ion-icon> Atras</button>
@@ -80,7 +95,7 @@ const CreateTicket = () => {
                 </div>
             )}
             {step === 3 && (
-                <div className='flex flex-col w-[425px]'>
+                <div className='flex flex-col w-[425px] h-[546px]'>
                     {/* Aquí va el contenido del tercer paso */}
                     <div className='mb-4'>
                         <button onClick={handlePrevStep} className='text-[#9AAFC7]'><ion-icon name="chevron-back-outline"></ion-icon> Atras</button>
@@ -90,12 +105,16 @@ const CreateTicket = () => {
                         <textarea name="" id="" cols="30" rows="5" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='Especifique el problema'></textarea>
                     </div>
                     <div>
-                        <p>Codigo Anydesk: <span>(Opcional)</span></p>
+                        <p>Codigo Anydesk: <span className='text-[#9AAFC7]'>(Opcional)</span></p>
                         <input type="number" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='1 321 987 654' />
                     </div>
-                    <div>
-                        <p>Añadir una imagen: <span>(Opcional)</span></p>
-                        <input type="file" src="" alt="" />
+                    <div className='relative mb-4'>
+                        <p className='mb-3'>Añadir una imagen: <span className='text-[#9AAFC7]'>(Opcional)</span></p>
+                        <div className={`absolute ${imgPreview ? "hidden" : "flex"} justify-center items-center w-full h-[80px] rounded-md bg-[#FFF] border border-slate-300`}>
+                            <label htmlFor="imagen" className='text-[#9AAFC7]' ><ion-icon name="image-outline"></ion-icon> Añadir imagen</label>
+                        </div>
+                        <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
+                        <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
                     <button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button>
                 </div>
