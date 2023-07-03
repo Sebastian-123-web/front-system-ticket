@@ -44,7 +44,7 @@ const CreateTicket = () => {
                     <input type="number" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='963741258' />
                     <p>Area: <span className='text-red-600 font-bold'>*</span></p>
                     <select name="" id="" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none'>
-                        <option select>Seleccione el area</option>
+                        <option>Seleccione el area</option>
                         <option value="sistemas">Sistemas</option>
                         <option value="contabilidad">Contabilidad</option>
                     </select>
@@ -117,7 +117,7 @@ const CreateTicket = () => {
                         <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
-                    <button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button>
+                    <Link to='/dashboard'><button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button></Link>
                 </div>
             )}
         </div>
