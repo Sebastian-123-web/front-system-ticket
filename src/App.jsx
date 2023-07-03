@@ -8,6 +8,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={ <CreateTicket /> } />
         <Route path='/createticket' element={ <CreateTicket /> } />
         <Route path='/dashboard' element={ <DashboardUser /> } />
       </Routes>
