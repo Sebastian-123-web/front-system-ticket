@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
+    const [idUser, setIdUser] = useState('rbanagasta')
 
     const handleNextStep = () => {
         setStep(step + 1);
@@ -117,7 +118,7 @@ const CreateTicket = () => {
                         <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
-                    <Link to='/dashboard'><button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button></Link>
+                    <Link to={`/dashboard/${idUser}`}><button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button></Link>
                 </div>
             )}
         </div>
