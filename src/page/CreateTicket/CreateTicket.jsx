@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ProgressBar from './ProgresoTicket';
 import '../../index.css'
 import { Link } from 'react-router-dom';
+import { Autenticacion } from '../../helpers/autenticacion';
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
@@ -118,7 +119,8 @@ const CreateTicket = () => {
                         <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
-                    <Link to={`/dashboard/${idUser}`}><button type="submit" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Enviar</button></Link>
+                    {/* <Link to={`/dashboard/${idUser}`}><button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => alert(idUser) }>Enviar</button></Link> */}
+                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => Autenticacion(idUser) }>Enviar</button>
                 </div>
             )}
         </div>
