@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import ProgressBar from './ProgresoTicket';
 import '../../index.css'
 import { Link } from 'react-router-dom';
-import { Autenticacion } from '../../helpers/autenticacion';
+import { Autenticacion } from '../../helpers/Autenticacion';
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
-    const [idUser, setIdUser] = useState('rbanagasta')
+    const [idUser, setIdUser] = useState('')
 
     const handleNextStep = () => {
         setStep(step + 1);
@@ -16,6 +16,14 @@ const CreateTicket = () => {
     const handlePrevStep = () => {
         setStep(step - 1);
     };
+
+    const handleauth = async(mailUser) => {
+        const statusAuth = await Autenticacion(mailUser)
+        console.log("Mensaje: ", statusAuth)
+        if(){
+            
+        }
+    }
 
     const imagenPreview = (e) => {
         // console.log('Hola', e.target.files[0])
@@ -120,7 +128,7 @@ const CreateTicket = () => {
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
                     {/* <Link to={`/dashboard/${idUser}`}><button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => alert(idUser) }>Enviar</button></Link> */}
-                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => Autenticacion(idUser) }>Enviar</button>
+                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => handleauth(idUser) }>Enviar</button>
                 </div>
             )}
         </div>
