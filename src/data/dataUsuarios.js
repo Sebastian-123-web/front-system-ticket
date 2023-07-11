@@ -1,4 +1,4 @@
-export const dataUser = [
+export const dataUsers = [
     {
         nombre: "Rodrigo",
         apellido: "Bañagasta",
@@ -10,6 +10,11 @@ export const dataUser = [
         email: "gmariano@transberperu.com",
     },
     {
+        nombre: "Javier",
+        apellido: "Guerrero",
+        email: "jguerrero@transberperu.com",
+    },
+    {
         nombre: "Michael",
         apellido: "Puscan",
         email: "mpuscan@transberperu.com",
@@ -18,10 +23,5 @@ export const dataUser = [
         nombre: "Edison",
         apellido: "Paredes",
         email: "eparedes@transberperu.com",
-    },
-    {
-        nombre: "Javier",
-        apellido: "Guerrero",
-        email: "jguerrero@transberperu.com",
-    },
+    },  
 ]

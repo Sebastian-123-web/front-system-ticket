@@ -7,30 +7,27 @@ import { Autenticacion } from '../../helpers/Autenticacion';
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
-    const [idUser, setIdUser] = useState('')
+    const [idUser, setIdUser] = useState('gmariano@transberperu.com')
 
     const handleNextStep = () => {
         setStep(step + 1);
     };
-
     const handlePrevStep = () => {
         setStep(step - 1);
     };
 
+    // AUTENTICACION DE USUARIO
     const handleauth = async(mailUser) => {
         const statusAuth = await Autenticacion(mailUser)
         console.log("Mensaje: ", statusAuth)
-        if(){
-            
-        }
     }
 
+
+    // CARGAR VISTA PREVIA
     const imagenPreview = (e) => {
-        // console.log('Hola', e.target.files[0])
         if(e.target.files[0]){
             const reader = new FileReader()
             reader.onload = function(e){
-                // console.log(e.target.result)
                 setImgPreview(e.target.result)
             }
             reader.readAsDataURL(e.target.files[0])
