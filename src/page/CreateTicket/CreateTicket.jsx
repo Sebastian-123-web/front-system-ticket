@@ -7,7 +7,7 @@ import { Autenticacion } from '../../helpers/Autenticacion';
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
-    const [idUser, setIdUser] = useState('gmariano@transberperu.com')
+    const [idUser, setIdUser] = useState('acasos@transberperu.com')
 
     const handleNextStep = () => {
         setStep(step + 1);
@@ -19,7 +19,11 @@ const CreateTicket = () => {
     // AUTENTICACION DE USUARIO
     const handleauth = async(mailUser) => {
         const statusAuth = await Autenticacion(mailUser)
-        console.log("Mensaje: ", statusAuth)
+        if(statusAuth){
+            console.log("Mensaje: ", statusAuth)
+        }else{
+            console.log("Mensaje: Error en el email")
+        }
     }
 
 
