@@ -1,13 +1,16 @@
-import { Route, redirect } from "react-router-dom"
+import { useContext } from "react"
+import { Route, useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/AuthContext"
 
-const RutaPrivada = () => {
-    const {dataUser} = "rbanagasta@transberperu.com"
+const RutaPrivada = ({element: element, ...rest}) => {
+    const { sesionActiva } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-    if(dataUser){
-        return <Route {...atributo}>{children}</Route> 
-    }else{
-        return redirect('/')
-    }
+    return (
+        <Route {...rest}
+            render = {( props) => sesionActiva ? <element {...props} /> : navigate('/') }
+         />
+    )
 }
 
 export default RutaPrivada

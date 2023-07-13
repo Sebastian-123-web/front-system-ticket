@@ -8,8 +8,7 @@ const DashboardUser = () => {
     const { Logout } = useContext(AuthContext)
 
     const handleLogout = () => {
-        Logout()
-        navigate('/')
+        Logout() ? navigate('/') : " "
     }
 
     return (

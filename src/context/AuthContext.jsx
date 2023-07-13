@@ -7,11 +7,12 @@ const AuthProvide = ({children}) => {
 
     const Login = () => {
         setSesionActiva(true)
+        return sesionActiva
     }
 
     const Logout = () => {
         setSesionActiva(false)
-        console.log(sesionActiva)
+        return sesionActiva
     }
 
     return (

@@ -39,8 +39,7 @@ const CreateTicket = () => {
     const { Login } = useContext(AuthContext)
     
     const handleAuth = () => {
-        Login()
-        navigate('/dashboard')
+        !Login() ? navigate('/dashboard') : alert("Error direccion de correo")
     }
 
 
