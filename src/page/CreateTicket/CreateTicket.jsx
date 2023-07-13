@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import ProgressBar from './ProgresoTicket';
 import '../../index.css'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Autenticacion } from '../../helpers/Autenticacion';
+
+import { AuthContext } from '../../context/AuthContext'; 
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
-    const [idUser, setIdUser] = useState('acasos@transberperu.com')
+    const [idUser, setIdUser] = useState('rbanagasta@transberperu.com')
+    
+    const navigate = useNavigate();
+    const { Login } = AuthContext()
 
     const handleNextStep = () => {
         setStep(step + 1);
@@ -16,15 +21,27 @@ const CreateTicket = () => {
         setStep(step - 1);
     };
 
+
+
+    
+
     // AUTENTICACION DE USUARIO
-    const handleauth = async(mailUser) => {
+    /*const handleauth = async(mailUser) => {
         const statusAuth = await Autenticacion(mailUser)
         if(statusAuth){
-            console.log("Mensaje: ", statusAuth)
+            console.log("Ingreso al Dashboard")
+            return navigate("/dashboard")
         }else{
-            console.log("Mensaje: Error en el email")
+            console.log("Error Email")
         }
+    }*/
+
+    const handleAuth = () => {
+        Login()
+        navigate('/dashabord')
     }
+
+
 
 
     // CARGAR VISTA PREVIA
@@ -129,7 +146,8 @@ const CreateTicket = () => {
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
                     {/* <Link to={`/dashboard/${idUser}`}><button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => alert(idUser) }>Enviar</button></Link> */}
-                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => handleauth(idUser) }>Enviar</button>
+                    {/* <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => handleauth(idUser) }>Crear Ticket</button> */}
+                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={ () => handleAuth() }>Crear Ticket</button>
                 </div>
             )}
         </div>

@@ -1,8 +1,6 @@
-import loginContext from "../../context/LoginContext"
 
 const DashboardUser = () => {
     return (
-        <loginContext.Provider>
 
             <div className="flex w-full h-screen">
                 <nav className="w-[230px] bg-[#18191A] flex flex-col items-center justify-between py-[50px]">
@@ -32,7 +30,6 @@ const DashboardUser = () => {
                 </section>
             </div>
 
-        </loginContext.Provider>
     )
 }
 
