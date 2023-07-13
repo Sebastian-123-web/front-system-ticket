@@ -1,5 +1,17 @@
+import { useContext } from "react"
+import { AuthContext } from "../../context/AuthContext"
+import { useNavigate } from "react-router-dom"
 
 const DashboardUser = () => {
+
+    const navigate = useNavigate()
+    const { Logout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        Logout()
+        navigate('/')
+    }
+
     return (
 
             <div className="flex w-full h-screen">
@@ -8,7 +20,7 @@ const DashboardUser = () => {
                     <ul>
                         <li>Mis Ticket</li>
                     </ul>
-                    <p>Login</p>
+                    <button onClick={() => {handleLogout()}}>Logout</button>
                 </nav>
                 <section className="flex flex-col" style={{width: "calc(100% - 230px)"}}>
                     <div className="bg-[#fff] h-[112px] w-full flex justify-between items-center pl-[50px] pr-[25px]">

@@ -1,11 +1,13 @@
-import { Route, Redirect } from "react-router-dom"
+import { Route, redirect } from "react-router-dom"
 
-export default RutaPrivada = ({children, ...atributo}) => {
+const RutaPrivada = () => {
     const {dataUser} = "rbanagasta@transberperu.com"
 
     if(dataUser){
         return <Route {...atributo}>{children}</Route> 
     }else{
-        return <Redirect to="/" />
+        return redirect('/')
     }
 }
+
+export default RutaPrivada

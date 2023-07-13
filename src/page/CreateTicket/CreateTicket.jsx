@@ -1,30 +1,29 @@
-import React, { useState } from 'react';
-import ProgressBar from './ProgresoTicket';
-import '../../index.css'
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Autenticacion } from '../../helpers/Autenticacion';
 
+import ProgressBar from './ProgresoTicket';
+import { Autenticacion } from '../../helpers/Autenticacion';
 import { AuthContext } from '../../context/AuthContext'; 
+
+import '../../index.css'
 
 const CreateTicket = () => {
     const [step, setStep] = useState(1);
     const [imgPreview, setImgPreview] = useState("")
     const [idUser, setIdUser] = useState('rbanagasta@transberperu.com')
     
-    const navigate = useNavigate();
-    const { Login } = AuthContext()
-
+    
     const handleNextStep = () => {
         setStep(step + 1);
     };
     const handlePrevStep = () => {
         setStep(step - 1);
     };
-
-
-
     
-
+    
+    
+    
+    
     // AUTENTICACION DE USUARIO
     /*const handleauth = async(mailUser) => {
         const statusAuth = await Autenticacion(mailUser)
@@ -35,10 +34,13 @@ const CreateTicket = () => {
             console.log("Error Email")
         }
     }*/
-
+    
+    const navigate = useNavigate();
+    const { Login } = useContext(AuthContext)
+    
     const handleAuth = () => {
         Login()
-        navigate('/dashabord')
+        navigate('/dashboard')
     }
 
 

@@ -1,6 +1,5 @@
 import { BrowserRouter, Router, Route, Routes } from 'react-router-dom';
 
-import LoginContext from './context/LoginContext';
 import { AuthProvide } from './context/AuthContext';
 
 import CreateTicket from "./page/CreateTicket/CreateTicket";
@@ -16,11 +15,8 @@ export default function App() {
         <Routes>
           <Route path='/' element={ <CreateTicket /> } />
           <Route path='/createticket' element={ <CreateTicket /> } />
-          {/* <Route path='/dashboard' element={ <DashboardUser /> } /> */}
           
-          <RutaPrivada path='/dashboard'>
-            <DashboardUser />
-          </RutaPrivada>
+          <Route path="/dashboard" element={ <DashboardUser /> } />
 
         </Routes>
       </BrowserRouter>

@@ -11,10 +11,11 @@ const AuthProvide = ({children}) => {
 
     const Logout = () => {
         setSesionActiva(false)
+        console.log(sesionActiva)
     }
 
     return (
-        <AuthContext.Provider value={{sesionActiva,Login,Logout}} >
+        <AuthContext.Provider value={{sesionActiva, Login, Logout}} >
             {children}
         </AuthContext.Provider>
     )
