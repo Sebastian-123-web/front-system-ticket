@@ -1,15 +1,5 @@
-import { useContext } from "react"
-import { AuthContext } from "../../context/AuthContext"
-import { useNavigate } from "react-router-dom"
 
 const DashboardUser = () => {
-
-    const navigate = useNavigate()
-    const { Logout } = useContext(AuthContext)
-
-    const handleLogout = () => {
-        Logout() ? navigate('/') : " "
-    }
 
     return (
 
