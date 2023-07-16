@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import ProgressBar from './ProgresoTicket';
+import { useLoginContext } from '../../context/LoginContext';
+
 
 import '../../index.css'
 
 const CreateTicket = () => {
+    // MOVIMIENTO DEL FORMULARIO
     const [step, setStep] = useState(1);
-    const [imgPreview, setImgPreview] = useState("")
-    
-    
     const handleNextStep = () => {
         setStep(step + 1);
     };
@@ -16,7 +17,16 @@ const CreateTicket = () => {
         setStep(step - 1);
     };
 
+    const navigate = useNavigate()
+    const { login } = useLoginContext()
+    const [email, setEmail] = useState('')
+    const handleLogin = (email) => { 
+        login(email)
+        navigate('/dashboard')
+    }
+    
     // CARGAR VISTA PREVIA
+    const [imgPreview, setImgPreview] = useState("")
     const imagenPreview = (e) => {
         if(e.target.files[0]){
             const reader = new FileReader()
@@ -37,7 +47,7 @@ const CreateTicket = () => {
                     {/* Aquí va el contenido del primer paso */}
                     <h1 className='font-bold mb-5 text-xl'>Datos de Usuario</h1>
                     <p>Correo corporativo: <span className='text-red-600 font-bold'>*</span></p>
-                    <input type="email" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='alguien@transberperu.com' />
+                    <input type="email" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='alguien@transberperu.com' onChange={(e)=>{setEmail(e.target.value)}} />
                     <p>Nombre y apellido: <span className='text-red-600 font-bold'>*</span></p>
                     <input type="text" className='mb-4 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' placeholder='Juan Hutchcraft' />
                     <p>Telefono/Celular: <span className='text-red-600 font-bold'>*</span></p>
@@ -117,7 +127,7 @@ const CreateTicket = () => {
                         <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
-                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Crear Ticket</button>
+                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={() => handleLogin(email)}>Crear Ticket</button>
                 </div>
             )}
         </div>
