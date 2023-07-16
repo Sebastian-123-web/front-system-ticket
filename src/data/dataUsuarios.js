@@ -28,5 +28,5 @@ export const dataUsers = [
         apellido: "Paredes",
         email: "eparedes@transberperu.com",
         fotoPerfil : "https://b2472105.smushcdn.com/2472105/wp-content/uploads/2023/01/Perfil-Profesional-_63-819x1024.jpg?lossy=1&strip=1&webp=1",
-    },  
+    },
 ]

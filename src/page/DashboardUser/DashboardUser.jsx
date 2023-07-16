@@ -12,7 +12,7 @@ const DashboardUser = () => {
                     <ul>
                         <li>Mis Ticket</li>
                     </ul>
-                    <button onClick={logout} className="text-white">Logout</button>
+                    <button onClick={logout} className="text-white"><ion-icon name="log-out-outline"></ion-icon> Logout</button>
                 </nav>
                 <section className="flex flex-col" style={{width: "calc(100% - 230px)"}}>
                     <div className="bg-[#fff] h-[112px] w-full flex justify-between items-center pl-[50px] pr-[25px]">

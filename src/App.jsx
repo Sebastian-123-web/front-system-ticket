@@ -4,25 +4,18 @@ import CreateTicket from "./page/CreateTicket/CreateTicket";
 import DashboardUser from "./page/DashboardUser/DashboardUser";
 import { PrivateRoute } from './router/PrivateRoute';
 import { useLoginContext, LoginContextProvider } from './context/LoginContext';
+import { LoginUser } from './page/LoginUser/LoginUser';
 
 export default function App() {
 
   return (
     <LoginContextProvider>
       <BrowserRouter>
-        {/* <div>
-          <Link to='/dashboard'>Dashboard</Link>
-        </div> */}
-
-        {/* {
-          user ? <button onClick={logout}>Logout</button> : <button onClick={login}>Login</button>
-        } */}
-
         <Routes>
           <Route index element={ <CreateTicket /> } />
           <Route path='/createticket' element={ <CreateTicket /> } />
-
           <Route path='/dashboard' element={ <PrivateRouteWrapper /> } />
+          <Route path='/login' element={ <LoginUser /> } />
           <Route path='*' element={ <h1>Pagina no encontrada :c</h1> } />
         </Routes>
       </BrowserRouter>
