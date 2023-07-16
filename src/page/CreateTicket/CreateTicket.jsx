@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import ProgressBar from './ProgresoTicket';
-import { useLoginContext } from '../../context/LoginContext';
+
 
 
 import '../../index.css'
@@ -16,14 +15,6 @@ const CreateTicket = () => {
     const handlePrevStep = () => {
         setStep(step - 1);
     };
-
-    const navigate = useNavigate()
-    const { login } = useLoginContext()
-    const [email, setEmail] = useState('')
-    const handleLogin = (email) => { 
-        login(email)
-        navigate('/dashboard')
-    }
     
     // CARGAR VISTA PREVIA
     const [imgPreview, setImgPreview] = useState("")
@@ -127,7 +118,7 @@ const CreateTicket = () => {
                         <img src={`${imgPreview}`} alt="" className={`${imgPreview ? "" : "hidden"} absolute h-[80px] rounded-md bg-[#FFF] border border-slate-300 left-[50%] translate-x-[-50%]`} />
                         <input type="file" id='imagen' className='opacity-0 w-full h-[80px]' onChange={imagenPreview} />
                     </div>
-                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold' onClick={() => handleLogin(email)}>Crear Ticket</button>
+                    <button type="" className='w-full bg-[#270722] py-4 rounded-lg text-white font-bold'>Crear Ticket</button>
                 </div>
             )}
         </div>

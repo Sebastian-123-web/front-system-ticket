@@ -11,8 +11,8 @@ export const LoginContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
 
     // INICIO DE SESION Y CERRAR SESION
-    const login = async (email) => {
-        const dataUser = await Autenticacion(email)
+    const login = async (loginUser) => {
+        const dataUser = await Autenticacion(loginUser)
         setUser(dataUser)
     }
 

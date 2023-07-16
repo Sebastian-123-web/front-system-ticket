@@ -1,3 +1,5 @@
+
+import { Link, Outlet } from "react-router-dom"
 import { useLoginContext } from "../../context/LoginContext" 
 
 const DashboardUser = () => {
@@ -9,8 +11,9 @@ const DashboardUser = () => {
             <div className="flex w-full h-screen">
                 <nav className="w-[230px] bg-[#18191A] flex flex-col items-center justify-between py-[50px]">
                     <p></p>
-                    <ul>
-                        <li>Mis Ticket</li>
+                    <ul className="text-white">
+                        <li><Link to='/dashboard'>Mis Ticket</Link></li>
+                        <li><Link to='/dashboard/createticket'>Crear Ticket</Link></li>
                     </ul>
                     <button onClick={logout} className="text-white"><ion-icon name="log-out-outline"></ion-icon> Logout</button>
                 </nav>
@@ -25,7 +28,7 @@ const DashboardUser = () => {
                     </div>
                     <div className="flex flex-row p-[25px]" style={{height: "calc(100vh - 112px)", width: "100%"}}>
                         <div className="bg-white mr-[25px] p-[25px] rounded-lg" style={{width: "calc(100% - 280px)"}}>
-                            Ticket
+                            <Outlet />
                         </div>
                         <div className="w-72 bg-[#d9d9d9] p-[25px] rounded-lg flex justify-center items-center">
                             Ops, aqui no hay info :c
