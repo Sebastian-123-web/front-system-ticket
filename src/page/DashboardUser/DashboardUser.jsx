@@ -1,22 +1,16 @@
 
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
+
 import { useLoginContext } from "../../context/LoginContext" 
+import { Navigation } from "../../components/Navigation/Navigation"
 
 const DashboardUser = () => {
 
-    const { user,logout } = useLoginContext()
+    const { user } = useLoginContext()
 
     return (
-
             <div className="flex w-full h-screen">
-                <nav className="w-[230px] bg-[#18191A] flex flex-col items-center justify-between py-[50px]">
-                    <p></p>
-                    <ul className="text-white">
-                        <li><Link to='/dashboard'>Mis Ticket</Link></li>
-                        <li><Link to='/dashboard/createticket'>Crear Ticket</Link></li>
-                    </ul>
-                    <button onClick={logout} className="text-white"><ion-icon name="log-out-outline"></ion-icon> Logout</button>
-                </nav>
+                <Navigation />
                 <section className="flex flex-col" style={{width: "calc(100% - 230px)"}}>
                     <div className="bg-[#fff] h-[112px] w-full flex justify-between items-center pl-[50px] pr-[25px]">
                         <h1>Mis Ticket</h1>
