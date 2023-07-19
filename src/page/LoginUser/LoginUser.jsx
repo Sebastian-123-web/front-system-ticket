@@ -39,7 +39,7 @@ export const LoginUser = () => {
 
     return (
         <>
-        <div>
+        <div className='w-full flex justify-center'>
             { loading ? 
                 (
                     <Spinner />
@@ -47,7 +47,7 @@ export const LoginUser = () => {
                 :
                 (
                     <div className='flex flex-col w-[425px]'>
-                        <h1 className='font-bold mb-5 text-xl text-center'>Inicio de Sesion</h1>
+                        <h1 className='font-bold mb-5 sm:text-xl text-center'>Inicio de Sesion</h1>
                         <p>Direccion de Correo: <span className='text-red-600 font-bold'>*</span></p>
                         <input 
                             type="email"
