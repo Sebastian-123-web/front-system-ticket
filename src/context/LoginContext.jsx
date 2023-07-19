@@ -14,14 +14,23 @@ export const LoginContextProvider = ({children}) => {
     const login = async (loginUser) => {
         const dataUser = await Autenticacion(loginUser)
         setUser(dataUser)
+        if(dataUser){
+            localStorage.setItem('user', JSON.stringify(dataUser));
+        }
     }
 
     const logout = () => {
         setUser(null)
+        localStorage.removeItem('user');
+    }
+
+    const estadoUsuario = () => {
+        var dataUser = JSON.parse(localStorage.getItem('user')) // devuelve datos usuarios o null
+        return dataUser
     }
 
     return (
-        <LoginContext.Provider value={{user, login, logout}}>
+        <LoginContext.Provider value={{user, login, logout, estadoUsuario}}>
             {children}
         </LoginContext.Provider>
     )

@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import DashboardUser from "./page/DashboardUser/DashboardUser";
-import CreateTicket from "./components/CreateTicket/CreateTicket";
-import { MisTicket } from "./components/MisTicket/MisTicket";
+import CreateTicket from "./page/DashboardUser/CreateTicket/CreateTicket";
+import { MisTicket } from "./page/DashboardUser/MisTicket/MisTicket"
 import { PrivateRoute } from './router/PrivateRoute';
 import { useLoginContext, LoginContextProvider } from './context/LoginContext';
 import { LoginUser } from './page/LoginUser/LoginUser';

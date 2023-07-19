@@ -3,12 +3,28 @@ import { Outlet } from "react-router-dom"
 
 import { useLoginContext } from "../../context/LoginContext" 
 import { Navigation } from "../../components/Navigation/Navigation"
+import { Spinner } from "../../components/Spinner/Spinner"
+import { useEffect, useState } from "react"
 
 const DashboardUser = () => {
+    const [loading, setLoading] = useState(true) // SPINNER :3
 
     const { user } = useLoginContext()
 
+    // useEffect PARA EL SPINNER :3
+    useEffect(()=>{
+        setTimeout(()=>{
+            setLoading(false)
+        },1000)
+    },[])
+
     return (
+        loading ? 
+        (
+            <Spinner />
+        )
+        :
+        (
             <div className="flex w-full h-screen">
                 <Navigation />
                 <section className="flex flex-col" style={{width: "calc(100% - 230px)"}}>
@@ -30,6 +46,7 @@ const DashboardUser = () => {
                     </div>
                 </section>
             </div>
+        )
 
     )
 }
