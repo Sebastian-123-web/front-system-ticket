@@ -17,10 +17,10 @@ const DashboardUser = () => {
 
     // useEffect PARA EL SPINNER :3
     useEffect(()=>{
+        debugger
         const dataLogin = estadoUsuario()
         if(dataLogin){
             login(dataLogin)
-            navigate('/dashboard')
         }
 
         setTimeout(()=>{
