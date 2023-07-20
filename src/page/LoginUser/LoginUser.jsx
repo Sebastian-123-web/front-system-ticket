@@ -27,11 +27,11 @@ export const LoginUser = () => {
     }
 
     useEffect(()=>{
-        const dataLogin = estadoUsuario()
+        /*const dataLogin = estadoUsuario()
         if(dataLogin){
             login(dataLogin)
             navigate('/dashboard')
-        }
+        }*/
         setTimeout(()=>{
             setLoading(false)
         },1000)
