@@ -8,11 +8,18 @@ import { useEffect, useState } from "react"
 
 const DashboardUser = () => {
     const [loading, setLoading] = useState(true) // SPINNER :3
+    const { login, estadoUsuario } = useLoginContext()
 
     const { user } = useLoginContext()
 
     // useEffect PARA EL SPINNER :3
     useEffect(()=>{
+        const dataLogin = estadoUsuario()
+        if(dataLogin){
+            login(dataLogin)
+            navigate('/dashboard')
+        }
+
         setTimeout(()=>{
             setLoading(false)
         },1000)
