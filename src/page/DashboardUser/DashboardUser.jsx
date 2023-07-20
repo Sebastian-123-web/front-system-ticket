@@ -1,13 +1,16 @@
 
 import { Outlet } from "react-router-dom"
 
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { useLoginContext } from "../../context/LoginContext" 
 import { Navigation } from "../../components/Navigation/Navigation"
 import { Spinner } from "../../components/Spinner/Spinner"
-import { useEffect, useState } from "react"
 
 const DashboardUser = () => {
     const [loading, setLoading] = useState(true) // SPINNER :3
+    const navigate = useNavigate()
     const { login, estadoUsuario } = useLoginContext()
 
     const { user } = useLoginContext()
