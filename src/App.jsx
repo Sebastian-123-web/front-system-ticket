@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import DashboardUser from "./page/DashboardUser/DashboardUser";
 import CreateTicket from "./page/DashboardUser/CreateTicket/CreateTicket";
@@ -26,10 +27,10 @@ export default function App() {
 }
 
 function PrivateRouteWrapper() {
-  const { user } = useLoginContext();
+  const { user, estadoUsuario } = useLoginContext();
 
   return (
-    <PrivateRoute user={user}>
+    <PrivateRoute user={{user, estadoUsuario}}>
       <DashboardUser />
     </PrivateRoute>
   );

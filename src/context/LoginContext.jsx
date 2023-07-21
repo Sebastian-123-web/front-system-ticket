@@ -8,7 +8,12 @@ export const useLoginContext = () => useContext(LoginContext)
 
 export const LoginContextProvider = ({children}) => {
     
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(()=>{
+        if(localStorage.getItem('user')){
+            return localStorage.getItem('user')
+        }
+        return null
+    })
 
     // INICIO DE SESION Y CERRAR SESION
     const login = async (loginUser) => {
