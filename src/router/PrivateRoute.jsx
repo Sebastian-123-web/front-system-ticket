@@ -1,3 +1,4 @@
+/*
 import { Navigate } from "react-router-dom"
 
 export const PrivateRoute = ({user, estadoUsuario, children}) => {
@@ -8,3 +9,4 @@ export const PrivateRoute = ({user, estadoUsuario, children}) => {
     console.log(user)
     return children
 }
+*/

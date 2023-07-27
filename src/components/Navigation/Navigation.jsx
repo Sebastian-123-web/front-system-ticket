@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { useLoginContext } from "../../context/LoginContext"
 import { useState } from "react"
@@ -21,6 +21,13 @@ export const Navigation = () => {
     ]
 
     const { logout } = useLoginContext()
+
+    // CERRAR SESION Y REDIGIRIR AL LOGIN
+    const navigate = useNavigate()
+    const logoutNav = () => {
+        logout()
+        navigate('/')
+    }
 
     return (
         <nav className="w-[230px] bg-[#18191A] flex flex-col items-center justify-between py-[50px]">

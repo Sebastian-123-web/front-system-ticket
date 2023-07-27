@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import DashboardUser from "./page/DashboardUser/DashboardUser";
 import CreateTicket from "./page/DashboardUser/CreateTicket/CreateTicket";
 import { MisTicket } from "./page/DashboardUser/MisTicket/MisTicket"
-import { PrivateRoute } from './router/PrivateRoute';
+//import { PrivateRoute } from './router/PrivateRoute';
 import { useLoginContext, LoginContextProvider } from './context/LoginContext';
 import { LoginUser } from './page/LoginUser/LoginUser';
 
@@ -14,8 +14,8 @@ export default function App() {
     <LoginContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route index element={ user ? ( <Navigate to="/dashboard" /> ) : ( <LoginUser /> ) } />
-          <Route path='/dashboard' element={ user ? ( <DashboardUser /> ) : ( <Navigate to="/" /> ) } >
+          <Route index element={ <RouterLogin url="/dashboard" > <LoginUser /> </RouterLogin > } />
+          <Route path='/dashboard' element={ <RouterDashboard url="/" > <DashboardUser /> </RouterDashboard > } >
             <Route index element={ <MisTicket /> } />
             <Route path='/dashboard/createticket' element={ <CreateTicket /> } />
           </Route>
@@ -26,25 +26,25 @@ export default function App() {
   )
 }
 
-function PrivateRouter({children, url}) {
-  const { user, estadoUsuario } = useLoginContext();
-  switch (key) {
-    case "/":
-      if(user){
-        return <Navigate to="/dashboard" />
-      }
-      return children
-      break;
-
-    case "/dashboard":
-      if(user){
-        return children
-      }
-      return <Navigate to="/dashboard" />
-      break;
+function RouterLogin({children, url}) {
+  const { user } = useLoginContext();
+  if(user){
+    return <Navigate to={url} />
+  }else{
+    return children
   }
 }
 
+function RouterDashboard({children, url}) {
+  const { user } = useLoginContext();
+  if(user){
+    return children
+  }else{
+    return <Navigate to={url} />
+  }
+}
+
+/*
 function PrivateRouteWrapper() {
   const { user, estadoUsuario } = useLoginContext();
 
@@ -54,3 +54,4 @@ function PrivateRouteWrapper() {
     </PrivateRoute>
   );
 }
+*/

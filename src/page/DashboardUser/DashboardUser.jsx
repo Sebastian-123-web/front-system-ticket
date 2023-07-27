@@ -17,10 +17,12 @@ const DashboardUser = () => {
 
     // useEffect PARA EL SPINNER :3
     useEffect(()=>{
+        // CARGAR DATOS DE USUARIO EN LA WEB
         const dataLogin = estadoUsuario()
         if(dataLogin){
             login(dataLogin)
         }
+        
 
         setTimeout(()=>{
             setLoading(false)
