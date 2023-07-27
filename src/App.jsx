@@ -14,8 +14,8 @@ export default function App() {
     <LoginContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route index element={ <LoginUser /> } />
-          <Route path='/dashboard' element={ <PrivateRouteWrapper /> } >
+          <Route index element={ user ? ( <Navigate to="/dashboard" /> ) : ( <LoginUser /> ) } />
+          <Route path='/dashboard' element={ user ? ( <DashboardUser /> ) : ( <Navigate to="/" /> ) } >
             <Route index element={ <MisTicket /> } />
             <Route path='/dashboard/createticket' element={ <CreateTicket /> } />
           </Route>
@@ -24,6 +24,25 @@ export default function App() {
       </BrowserRouter>
     </LoginContextProvider>
   )
+}
+
+function PrivateRouter({children, url}) {
+  const { user, estadoUsuario } = useLoginContext();
+  switch (key) {
+    case "/":
+      if(user){
+        return <Navigate to="/dashboard" />
+      }
+      return children
+      break;
+
+    case "/dashboard":
+      if(user){
+        return children
+      }
+      return <Navigate to="/dashboard" />
+      break;
+  }
 }
 
 function PrivateRouteWrapper() {
