@@ -15,7 +15,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={ <RouterLogin url="/dashboard" > <LoginUser /> </RouterLogin > } />
-          <Route path='/dashboard' element={ <RouterDashboard url="/" > <DashboardUser /> </RouterDashboard > } >
+          <Route path='dashboard' element={ <RouterDashboard url="/" > <DashboardUser /> </RouterDashboard > } >
             <Route index element={ <MisTicket /> } />
             <Route path='/dashboard/createticket' element={ <CreateTicket /> } />
           </Route>
