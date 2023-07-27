@@ -43,15 +43,3 @@ function RouterDashboard({children, url}) {
     return <Navigate to={url} />
   }
 }
-
-/*
-function PrivateRouteWrapper() {
-  const { user, estadoUsuario } = useLoginContext();
-
-  return (
-    <PrivateRoute user={{user, estadoUsuario}}>
-      <DashboardUser />
-    </PrivateRoute>
-  );
-}
-*/
