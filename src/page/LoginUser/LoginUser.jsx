@@ -3,6 +3,8 @@ import { useLoginContext } from '../../context/LoginContext';
 import { useNavigate } from 'react-router-dom';
 import { Spinner } from '../../components/Spinner/Spinner';
 
+import Swal from 'sweetalert2'
+
 export const LoginUser = () => {
 
     const navigate = useNavigate()
@@ -66,7 +68,16 @@ export const LoginUser = () => {
                             className='mb-1 w-full rounded-md sm:text-sm mt-1 px-4 py-3 bg-[#FFF] border border-slate-300 focus:outline-none' 
                             placeholder='***********' />
                         <button 
-                            onClick={ () => alert(`Se envio un correo a ${loginUser.email}`)}
+                            onClick={ () => {
+                                // ESTO MUESTRA UNA ALERTA DE ENVIO DE MENSAJE A UNA BANDEJA DE CORREO
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: `${ loginUser.email ? "success" : "error"}`,
+                                    title: `${loginUser.email ? "Se envio un mensaje a su correo electronico" : "Ingrese un email para cambiar contraseña"}`,
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                  })
+                            }}
                             className='mb-4 text-right hover:text-indigo-700'
                             >Olvide mi contraseña
                         </button>

@@ -1,3 +1,15 @@
+
 export const MisTicket = () => {
-    return <h1>Ticket en cantidad *-*</h1>
+    return (
+        <div className="w-full h-full">
+            <div>
+                <h1 className="text-lg">Mis Ticket Creados</h1>
+            </div>
+            <div>
+                <table>
+                    
+                </table>
+            </div>
+        </div>
+    )
 }
