@@ -1,8 +1,55 @@
 
+//IMPORTACIONES DE REACT O TERCEROS
 import { useState } from "react"
+import DataTable from 'react-data-table-component';
+
+//IMPORTACIONES DE COMPONENTES PROPIOS
 import { MenuPoint } from "../../../components/MenuPoint/MenuPoint"
 
+//IMPORTACIONES DE FUNCIONALIDADES O APIS
 import functionTicket from "../../../helpers/FunctionTicket"
+
+
+const columns = [
+    {
+        name: '#',
+        selector: row => row.icon,
+    },
+    {
+        name: 'Asunto del Problema',
+        selector: row => row.asunto,
+    },
+    {
+        name: 'Estado',
+        selector: row => row.year,
+    },
+    {
+        name: 'Importancia',
+        selector: row => row.year,
+    },
+    {
+        name: 'Dispositivo',
+        selector: row => row.year,
+    },
+    {
+        name: 'Opciones',
+        selector: row => row.year,
+    },
+];
+
+const data = [
+    {
+        id: 1,
+        icon: 'Beetlejuice',
+        asunto: 'Error SIDIGE',
+    },
+    {
+        id: 2,
+        title: 'Ghostbusters',
+        year: '1984',
+    },
+]
+
 
 export const MisTicket = () => {
 
@@ -55,18 +102,15 @@ export const MisTicket = () => {
                         <MenuPoint opciones={opciones} >
                             
                         </MenuPoint>
-                        {/* { currentStep == 1 && <Informacion /> } */}
                     </div>
                 </div>
+
+                <DataTable
+                    columns={columns}
+                    data={data}
+                />
+
             </div>
         </div>
     )
 }
-
-// export const Informacion = () => {
-//     return (
-//         <div>
-//             <h1>Prueba info</h1>
-//         </div>
-//     )
-// }
