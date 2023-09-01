@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 import { useLoginContext } from "../../context/LoginContext" 
 import { Navigation } from "../../components/Navigation/Navigation"
-import { Spinner } from "../../components/Spinner/Spinner"
+import { ChaoticOrbit } from '@uiball/loaders'
 
 const DashboardUser = () => {
     const [loading, setLoading] = useState(true) // SPINNER :3
@@ -30,7 +30,11 @@ const DashboardUser = () => {
     return (
         loading ? 
         (
-            <Spinner />
+            <ChaoticOrbit
+                size={40}
+                speed={1.5}
+                color="#18191a"
+            />
         )
         :
         (

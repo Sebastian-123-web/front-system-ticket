@@ -18,6 +18,11 @@ export const Navigation = () => {
             name : "Crear Ticket",
             icon : "ticket-outline"
         },
+        {
+            url : "/dashboard/about",
+            name : "About dev",
+            icon : "code-outline"
+        }
     ]
 
     const { logout } = useLoginContext()

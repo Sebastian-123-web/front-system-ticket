@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route, Navigate, HashRouter } from 'react-router
 import DashboardUser from "./page/DashboardUser/DashboardUser";
 import CreateTicket from "./page/DashboardUser/CreateTicket/CreateTicket";
 import { MisTicket } from "./page/DashboardUser/MisTicket/MisTicket"
-//import { PrivateRoute } from './router/PrivateRoute';
 import { useLoginContext, LoginContextProvider } from './context/LoginContext';
 import { LoginUser } from './page/LoginUser/LoginUser';
+import { About } from './page/DashboardUser/About/About';
 
 export default function App() {
 
@@ -18,6 +18,7 @@ export default function App() {
             <Route path='/dashboard' element={ <RouterDashboard url="/" > <DashboardUser /> </RouterDashboard > } >
               <Route index element={ <MisTicket /> } />
               <Route path='/dashboard/createticket' element={ <CreateTicket /> } />
+              <Route path='/dashboard/about' element={ <About /> } />
             </Route>
             <Route path='*' element={ <h1>Pagina no encontrada :c</h1> } />
           </Routes>

@@ -1,26 +1,8 @@
 import { useState } from "react"
 
-export const MenuPoint = (props) => {
+export const MenuPoint = ({ opciones = [], children }) => {
 
     const [view, setView] = useState(false)
-    const [opciones, setOpciones] = useState([
-        {
-            'opcion' : 'Informacion',
-            'funcion' : 'aqui una funcion'
-        },
-        {
-            'opcion' : 'Configuracion',
-            'funcion' : 'aqui una funcion'
-        },
-        {
-            'opcion' : 'Descargar Informe',
-            'funcion' : 'aqui una funcion'
-        },
-        {
-            'opcion' : 'Estadisticas',
-            'funcion' : 'aqui una funcion'
-        },
-    ])
 
     const handleViewMenu = () => {
         if(!view){
@@ -42,17 +24,21 @@ export const MenuPoint = (props) => {
 
 
             <div className={`z-50 w-44 p-2 right-5 bg-[#FAFAFA] rounded-l-lg rounded-br-lg border border-slate-100 shadow-lg shadow-slate-400 absolute ${ view ? ' ' : 'hidden' }`}>
-                <ul>
-                    {
-                        opciones.length > 0 && opciones.map( (op, i) => (
-                            <li 
-                                key={i}
-                                className=" hover:bg-slate-400 hover:text-white hover:font-bold rounded-lg p-2 cursor-pointer"
-                                onClick={()=> alert('Hola') }
-                            >{op.opcion}</li> 
-                        ) )
-                    }
-                </ul>
+                {
+                    children ? children : (
+                        <ul>
+                            {
+                                opciones.length > 0 && opciones.map( (op, i) => (
+                                    <li 
+                                        key={i}
+                                        className=" hover:bg-slate-400 hover:text-white hover:font-bold rounded-lg p-2 cursor-pointer"
+                                        onClick={ () => op.funcion(op.step)}
+                                    >{op.opcion}</li> 
+                                ) )
+                            }
+                        </ul>
+                    )
+                }
             </div>
         </div>
     )

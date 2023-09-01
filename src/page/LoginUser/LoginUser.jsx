@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useLoginContext } from '../../context/LoginContext';
 import { useNavigate } from 'react-router-dom';
-import { Spinner } from '../../components/Spinner/Spinner';
+
+import { ChaoticOrbit } from '@uiball/loaders'
+
+
 
 import Swal from 'sweetalert2'
 
@@ -45,7 +48,11 @@ export const LoginUser = () => {
         <div className='w-full flex justify-center'>
             { loading ? 
                 (
-                    <Spinner />
+                    <ChaoticOrbit 
+                        size={40}
+                        speed={1.5} 
+                        color="#18191a" 
+                    />
                 )
                 :
                 (

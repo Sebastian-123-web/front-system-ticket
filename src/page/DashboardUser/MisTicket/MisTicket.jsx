@@ -1,10 +1,20 @@
+
 import { useState } from "react"
 import { MenuPoint } from "../../../components/MenuPoint/MenuPoint"
 
-import { opcionesTicket,Informacion,DescargarInforme } from '../../../helpers/FunctionTicket'
+import functionTicket from "../../../helpers/FunctionTicket"
 
 export const MisTicket = () => {
 
+    const [currentStep, setCurrentStep] = useState(0)
+
+    const handleValor = (step) => {
+        setCurrentStep(step)
+    }
+    console.log(currentStep)
+    const { opciones } = functionTicket({handleValor})
+
+    
     return (
         <div className="w-full h-full">
             <div className="mb-5">
@@ -42,10 +52,21 @@ export const MisTicket = () => {
                         </p>
                     </div>
                     <div className="w-[40px]">
-                        <MenuPoint />
+                        <MenuPoint opciones={opciones} >
+                            
+                        </MenuPoint>
+                        {/* { currentStep == 1 && <Informacion /> } */}
                     </div>
                 </div>
             </div>
         </div>
     )
 }
+
+// export const Informacion = () => {
+//     return (
+//         <div>
+//             <h1>Prueba info</h1>
+//         </div>
+//     )
+// }

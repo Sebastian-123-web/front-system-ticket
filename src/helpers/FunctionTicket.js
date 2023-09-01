@@ -1,26 +1,35 @@
 
-export const opcionesTicket = [
-    {'opcion' : 'Informacion'},
-    {'opcion' : 'Descargar Informe'}
-]
-
-export const Informacion = async () => {
-    return alert('Se abre pagina de informacion')
-}
-
-export const DescargarInforme = async () => {
-    return alert('Se descarga un informe del ticket')
-}
-
-class FunctionTicket{
-
-
-    // Metodos
-    Informacion(){
-        return alert('Se abre pagina de informacion')
+const functionTicket = ({handleValor}) => {
+    const mensajePrueba = () => {
+        alert('Funcionoooooo!!!!!!!!!!')
     }
+    
+    const opciones = [
+        {
+            'opcion' : 'Informacion',
+            'funcion' : handleValor,
+            'step' : 1
+        },
+        {
+            'opcion' : 'Configuracion',
+            'funcion' : handleValor,
+            'step' : 2
+        },
+        {
+            'opcion' : 'Descargar Informe',
+            'funcion' : handleValor,
+            'step' : 3
+        },
+        {
+            'opcion' : 'Estadisticas',
+            'funcion' : handleValor,
+            'step' : 4
+        },
+    ]
 
-    DescargarInforme(){
-        return alert('Se descarga un informe del ticket')
-    }
+  return {
+    opciones
+  }
 }
+
+export default functionTicket
