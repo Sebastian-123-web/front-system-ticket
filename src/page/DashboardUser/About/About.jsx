@@ -3,8 +3,8 @@ import React from 'react'
 export const About = () => {
   return (
     <div>
-        <h1>About Dev</h1>
-        <h2>Rodrigo Bañagasta</h2>
+        <h1>About Developer</h1>
+        <h2>RODRIGO BAÑAGASTA FLORES</h2>
         <p>Tecnologias Utilizadas</p>
         <ul>
             <li>React</li>

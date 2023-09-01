@@ -1,5 +1,5 @@
 
-const functionTicket = ({handleValor}) => {
+const functionTicket = ({}) => {
     const mensajePrueba = () => {
         alert('Funcionoooooo!!!!!!!!!!')
     }
@@ -7,22 +7,22 @@ const functionTicket = ({handleValor}) => {
     const opciones = [
         {
             'opcion' : 'Informacion',
-            'funcion' : handleValor,
+            'funcion' : mensajePrueba,
             'step' : 1
         },
         {
             'opcion' : 'Configuracion',
-            'funcion' : handleValor,
+            'funcion' : mensajePrueba,
             'step' : 2
         },
         {
             'opcion' : 'Descargar Informe',
-            'funcion' : handleValor,
+            'funcion' : mensajePrueba,
             'step' : 3
         },
         {
             'opcion' : 'Estadisticas',
-            'funcion' : handleValor,
+            'funcion' : mensajePrueba,
             'step' : 4
         },
     ]
