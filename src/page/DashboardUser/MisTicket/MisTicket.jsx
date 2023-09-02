@@ -10,57 +10,26 @@ import { MenuPoint } from "../../../components/MenuPoint/MenuPoint"
 import functionTicket from "../../../helpers/FunctionTicket"
 
 
-const columns = [
-    {
-        name: '#',
-        selector: row => row.icon,
-    },
-    {
-        name: 'Asunto del Problema',
-        selector: row => row.asunto,
-    },
-    {
-        name: 'Estado',
-        selector: row => row.year,
-    },
-    {
-        name: 'Importancia',
-        selector: row => row.year,
-    },
-    {
-        name: 'Dispositivo',
-        selector: row => row.year,
-    },
-    {
-        name: 'Opciones',
-        selector: row => row.year,
-    },
-];
 
-const data = [
-    {
-        id: 1,
-        icon: 'Beetlejuice',
-        asunto: 'Error SIDIGE',
-    },
-    {
-        id: 2,
-        title: 'Ghostbusters',
-        year: '1984',
-    },
-]
-
+export const iconTicket = () => {
+  return (
+    <div className="rounded-full w-11 h-11 border-[#EEEEEE] border border-solid flex items-center justify-center">
+        <p className="text-2xl">
+            <ion-icon name="ticket-outline"></ion-icon>
+        </p>
+    </div>
+  )
+}
 
 export const MisTicket = () => {
-
-    const [currentStep, setCurrentStep] = useState(0)
-
-    const handleValor = (step) => {
-        setCurrentStep(step)
-    }
-    console.log(currentStep)
-    const { opciones } = functionTicket({handleValor})
-
+    
+    // const [currentStep, setCurrentStep] = useState(0)
+    
+    // const handleValor = (step) => {
+    //     setCurrentStep(step)
+    // }
+    // console.log(currentStep)
+    const { opciones } = functionTicket()
     
     return (
         <div className="w-full h-full">
@@ -99,18 +68,24 @@ export const MisTicket = () => {
                         </p>
                     </div>
                     <div className="w-[40px]">
-                        <MenuPoint opciones={opciones} >
-                            
+                        <MenuPoint> 
+                            <ul>
+                                {
+                                    opciones.length > 0 && opciones.map( (op, i) => (
+                                        <li 
+                                            key={i}
+                                            className=" hover:bg-slate-400 hover:text-white hover:font-bold rounded-lg p-2 cursor-pointer"
+                                            onClick={op.funcion}
+                                        >{op.opcion}</li> 
+                                    ) )
+                                }
+                            </ul>
                         </MenuPoint>
                     </div>
                 </div>
-
-                <DataTable
-                    columns={columns}
-                    data={data}
-                />
-
             </div>
         </div>
     )
 }
+
+
