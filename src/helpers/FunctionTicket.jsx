@@ -1,17 +1,17 @@
-import { Navigate } from 'react-router-dom';
+import { redirect, useNavigate  } from "react-router-dom";
 
 import Swal from 'sweetalert2'
 
-const functionTicket = () => {
-    const informacionTicket = () => {
-        return <Navigate to={`/dashboard/8`} />
-        // console.log('hola')
-        // alert('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-    }
 
+const functionTicket = () => {
+    const navigate = useNavigate();
+    
+    const informacionTicket = () => {
+        navigate('/dashboard/ticket-15')
+    }
     const descargarInforme = () => {
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'Informe Descargado',
             showConfirmButton: false,
