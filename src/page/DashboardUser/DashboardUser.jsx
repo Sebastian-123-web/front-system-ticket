@@ -50,12 +50,12 @@ const DashboardUser = () => {
                         </div>
                     </div>
                     <div className="flex flex-row p-[25px]" style={{height: "calc(100vh - 112px)", width: "100%"}}>
-                        <div className="bg-white mr-[25px] p-[25px] rounded-lg" style={{width: "calc(100% - 280px)"}}>
+                        <div className="rounded-lg" style={{width: "100%"}}>
                             <Outlet />
                         </div>
-                        <div className="w-72 bg-[#d9d9d9] p-[25px] rounded-lg flex justify-center items-center">
+                        {/* <div className="w-72 bg-[#d9d9d9] p-[25px] rounded-lg flex justify-center items-center">
                             Ops, aqui no hay info :c
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </div>
