@@ -21,10 +21,11 @@ export const ImageView = () => {
         <div className="col-span-5 row-span-2 bg-white rounded-lg border border-[#E0EDFF] p-5 inline-flex flex-wrap justify-between items-center">
             {
                 imgs.length > 0 && imgs.map( (img,i) => (
-                    <div onClick={() => ShowImage(img.img)} className="w-24 h-24 flex items-center overflow-hidden" key={i}>
+                    <div className="w-24 h-24 flex items-center overflow-hidden" key={i}>
                         <img
                             src={ img.img }
                             alt=""
+                            onClick={() => ShowImage(img.img)} 
                         />
                     </div>
                 ) )
